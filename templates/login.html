@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - The Tech Marketer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Tech Marketer</div>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('services') }}">Services</a></li>
+        <li><a href="{{ url_for('blog') }}">Blog</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      </ul>
+      <div class="burger"><div></div><div></div><div></div></div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="login-section">
+      <h1>Admin Login</h1>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="flash-messages">
+            {% for category, message in messages %}
+              <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+      <form method="POST" action="{{ url_for('login') }}" class="login-form">
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" required placeholder="Enter Your Username" />
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" required placeholder="Password" />
+
+        <button type="submit" class="btn login-btn">Login</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 The Tech Marketer. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
+

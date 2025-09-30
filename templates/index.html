@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Tech Marketer - Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">Tech Marketer</div>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('home') }}" class="active">Home</a></li>
+        <li><a href="{{ url_for('services') }}">Services</a></li>
+        <li><a href="{{ url_for('blog') }}">Blog</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      </ul>
+      <div class="burger"><div></div><div></div><div></div></div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="featured-grid">
+      <article class="featured-main">
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Main Feature" />
+        <div class="featured-overlay">
+          <h2>Emerging Trends in AI for Marketing</h2>
+          <p>Explore how AI is transforming campaign strategies in 2025.</p>
+        </div>
+      </article>
+      <div class="featured-side">
+        <article><img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Feature 1" />
+          <h3>Brand Storytelling Tips</h3>
+        </article>
+        <article><img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Feature 2" />
+          <h3>SEO Optimization Tricks</h3>
+        </article>
+        <article><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Feature 3" />
+          <h3>Maximizing Social Reach</h3>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Recommended</h2>
+      <div class="card-row">
+        <div class="card"><img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Rec 1" />
+          <h4>How to Build an Email List</h4>
+          <p>Proven tactics for growing your subscriber base.</p>
+        </div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Rec 2" />
+          <h4>Optimizing PPC Campaigns</h4>
+          <p>Cut costs and boost ROAS with these strategies.</p>
+        </div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Rec 3" />
+          <h4>Using Video for Engagement</h4>
+          <p>Tips to create compelling videos that convert.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="popular-section">
+      <h2>Most Viewed</h2>
+      <div class="card-row">
+        <div class="card"><img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Popular 1" />
+          <h4>Influencer Marketing Deep Dive</h4>
+          <p>Partner with authentic voices in your niche.</p>
+        </div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Popular 2" />
+          <h4>Content Marketing Insights</h4>
+          <p>Plan, create, and distribute for maximum impact.</p>
+        </div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Popular 3" />
+          <h4>Latest in CRM Software</h4>
+          <p>Choosing the right tools for client management.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Marketing Guides</h2>
+      <div class="guide-row">
+        <div class="guide-card"><img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Guide 1" />
+          <h5>SEO Fundamentals</h5>
+        </div>
+        <div class="guide-card"><img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Guide 2" />
+          <h5>Content Planning</h5>
+        </div>
+        <div class="guide-card"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Guide 3" />
+          <h5>Social Media Strategy</h5>
+        </div>
+      </div>
+    </section>
+
+    <section class="partners">
+      <h2>Our Partners</h2>
+      <div class="partner-logos">
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=140&q=80" alt="Partner 1" />
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=140&q=80" alt="Partner 2" />
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=140&q=80" alt="Partner 3" />
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Contact</a>
+        <a href="#">FAQs</a>
+      </div>
+      <div class="social-icons">
+        <a href="#"><img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=40&q=80" alt="Facebook" /></a>
+        <a href="#"><img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=40&q=80" alt="Twitter" /></a>
+        <a href="#"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=40&q=80" alt="LinkedIn" /></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 The Tech Marketer. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

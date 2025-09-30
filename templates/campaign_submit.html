@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Submit Campaign Idea</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+<header>
+  <nav>
+    <div class="logo">Tech Marketer</div>
+    <ul>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('campaign_submit') }}" class="active">Submit Campaign</a></li>
+      <li><a href="{{ url_for('contact') }}">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+<main class="container">
+  <h1>Submit Your Campaign Idea</h1>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div>
+      {% for category, message in messages %}
+        <p class="flash {{ category }}">{{ message }}</p>
+      {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+  <form method="POST">
+    <label for="name">Name:</label><br />
+    <input id="name" name="name" type="text" required /><br />
+
+    <label for="email">Email:</label><br />
+    <input id="email" name="email" type="email" required /><br />
+
+    <label for="campaign_idea">Your Campaign Idea:</label><br />
+    <textarea id="campaign_idea" name="campaign_idea" rows="6" required></textarea><br />
+
+    <button type="submit">Submit</button>
+  </form>
+</main>
+</body>
+</html>

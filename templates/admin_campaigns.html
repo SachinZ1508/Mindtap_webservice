@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Admin - User Campaigns</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+<header>
+  <nav>
+    <div class="logo">Tech Marketer Admin</div>
+    <ul>
+      <li><a href="{{ url_for('admin_dashboard') }}">Dashboard</a></li>
+      <li><a href="{{ url_for('logout') }}">Logout</a></li>
+    </ul>
+  </nav>
+</header>
+<main class="container">
+  <h1>User Submitted Campaign Ideas</h1>
+  <table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+      <tr><th>ID</th><th>Name</th><th>Email</th><th>Idea</th><th>Submitted At</th></tr>
+    </thead>
+    <tbody>
+      {% for c in campaigns %}
+      <tr>
+        <td>{{ c.CampaignID }}</td>
+        <td>{{ c.Name }}</td>
+        <td>{{ c.Email }}</td>
+        <td>{{ c.CampaignIdea }}</td>
+        <td>{{ c.SubmittedAt }}</td>
+      </tr>
+      {% else %}
+      <tr><td colspan="5">No campaign ideas submitted yet.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</main>
+</body>
+</html>
