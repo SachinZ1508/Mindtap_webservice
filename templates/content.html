@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Content & Creative Services - Tech Marketer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    .container {
+      text-align: center; /* centers h1, img, and inline elements */
+      margin: 0 auto;
+      max-width: 900px;
+    }
+
+    .container img {
+      display: block;
+      margin: 20px auto; /* centers image */
+    }
+
+    .container h1 {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="{{ url_for('services') }}">← Back to Services</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Custom Content & Creative Services</h1>
+    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=700&q=80" 
+         alt="Content Marketing" style="max-width: 700px; width:100%;">
+    <p>
+      Great marketing starts with great content. Our creative team produces high-quality 
+      <strong>articles, blogs, whitepapers, infographics, and videos</strong> that educate and engage your audience.
+    </p>
+    <p>
+      Whether you need thought leadership content, campaign assets, or interactive media, we bring 
+      your ideas to life and ensure your message resonates with your target buyers.
+    </p>
+  </main>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Contact</a>
+        <a href="#">FAQs</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 The Tech Marketer. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

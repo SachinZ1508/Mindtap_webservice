@@ -85,8 +85,8 @@ def contact_send():
 
 @app.route('/blog')
 def blog():
-    page = request.args.get('page', 1, type=int)  # Default page 1
-    per_page = 5  # Ek page par 5 blog posts dikhayenge
+    page = request.args.get('page', 1, type=int)  
+    per_page = 5  
     offset = (page - 1) * per_page
     
     posts = db.fetch_blog_posts_with_limit_offset(per_page, offset)
@@ -228,6 +228,31 @@ def campaign_submit():
 def admin_view_campaigns():
     campaigns = db.fetch_all_user_campaigns()
     return render_template('admin_campaigns.html', campaigns=campaigns)
+
+@app.route('/services/advertising')
+def advertising():
+    return render_template('advertising.html')
+
+@app.route('/services/lead-generation')
+def lead_generation():
+    return render_template('lead_generation.html')
+
+@app.route('/services/content')
+def content_services():
+    return render_template('content.html')
+
+@app.route('/services/targeting')
+def targeting():
+    return render_template('targeting.html')
+
+@app.route('/services/campaign-management')
+def campaign_management():
+    return render_template('campaign.html')
+
+@app.route('/services/lead-quality')
+def lead_quality():
+    return render_template('lead_quality.html')
+    
 
 
 if __name__ == '__main__':

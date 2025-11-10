@@ -1,36 +1,232 @@
-form {
-  max-width: 600px;
-  margin: 1.5em auto;
-  display: flex;
-  flex-direction: column;
-}
+<!DOCTYPE html>
+<html lang="en">
 
-label {
-  margin-bottom: 0.3em;
-  font-weight: bold;
-}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>New Blog Post - The Tech Marketer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <style>
+    /* Reset some basic default styles */
+    * {
+      box-sizing: border-box;
+    }
 
-input[type="text"],
-textarea {
-  padding: 0.7em;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-bottom: 1em;
-  font-size: 1em;
-  font-family: inherit;
-}
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      background-color: #f9fafb;
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-button.btn {
-  padding: 0.7em;
-  background-color: #007bff;
-  border: none;
-  color: white;
-  cursor: pointer;
-  font-size: 1.1em;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
+    header {
+      background-color: #007bff;
+      padding: 1rem 2rem;
+      color: white;
+      box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
+    }
 
-button.btn:hover {
-  background-color: #0056b3;
-}
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+      color: #cce4ff;
+      outline: none;
+    }
+
+    main.container {
+      max-width: 700px;
+      width: 90%;
+      background: white;
+      margin: 2rem auto 3rem;
+      padding: 2.5rem 3rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgb(0 0 0 / 0.07);
+    }
+
+    h1 {
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      color: #222;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    /* Flash messages */
+    .flash-messages {
+      margin-bottom: 1.5rem;
+    }
+
+    .flash {
+      padding: 0.8rem 1.2rem;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+      user-select: none;
+    }
+
+    .flash.success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .flash.error,
+    .flash.danger {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: #444;
+    }
+
+    input[type="text"],
+    textarea {
+      padding: 0.8rem 1rem;
+      font-size: 1rem;
+      font-family: inherit;
+      border: 1.8px solid #ddd;
+      border-radius: 6px;
+      transition: border-color 0.25s ease;
+      resize: vertical;
+      min-height: 38px;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus {
+      border-color: #007bff;
+      outline: none;
+      box-shadow: 0 0 0 3px #cce4ff;
+    }
+
+    textarea[rows="3"] {
+      max-height: 140px;
+    }
+
+    button.btn {
+      padding: 0.85rem 0;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 1.15rem;
+      font-weight: 600;
+      border-radius: 6px;
+      box-shadow: 0 3px 8px rgb(0 123 255 / 0.5);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+
+    button.btn:hover,
+    button.btn:focus {
+      background-color: #0056b3;
+      box-shadow: 0 5px 15px rgb(0 86 179 / 0.7);
+      outline: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      background-color: #f1f3f5;
+      color: #666;
+      font-size: 0.9rem;
+      margin-top: auto;
+      user-select: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo" aria-label="Tech Marketer Admin Logo">Tech Marketer Admin</div>
+      <ul class="nav-links" role="navigation">
+        <li><a href="{{ url_for('admin_dashboard') }}">Dashboard</a></li>
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container" role="main" aria-labelledby="pageTitle">
+    <h1 id="pageTitle">Add New Blog Post</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash-messages" role="alert">
+      {% for category, message in messages %}
+      <div class="flash {{ category }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <form method="POST" novalidate autocomplete="off" aria-describedby="formHelp">
+      <label for="title">Title <span aria-hidden="true" style="color:#d93025">*</span></label>
+      <input id="title" name="title" type="text" required aria-required="true" />
+
+      <label for="slug">Slug (URL-friendly) <span aria-hidden="true" style="color:#d93025">*</span></label>
+      <input id="slug" name="slug" type="text" required aria-required="true" />
+
+      <label for="summary">Summary</label>
+      <textarea id="summary" name="summary" rows="3" placeholder="Enter a short summary"></textarea>
+
+      <label for="content">Content <span aria-hidden="true" style="color:#d93025">*</span></label>
+      <textarea id="content" name="content" rows="10" required aria-required="true" placeholder="Write your blog content here..."></textarea>
+
+      <label for="featured_image">Featured Image URL</label>
+      <input id="featured_image" name="featured_image" type="text" placeholder="https://example.com/image.jpg" />
+
+      <button type="submit" class="btn">Add Post</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 The Tech Marketer</p>
+  </footer>
+</body>
+
+</html>

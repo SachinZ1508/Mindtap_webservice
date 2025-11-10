@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Our Services - Tech Marketer</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 </head>
@@ -23,15 +24,62 @@
     <section>
       <h1>Our Services</h1>
       <div class="card-row">
-        {% for service in services %}
+
+        <!-- Service 1 -->
         <div class="card">
-          <img src="{{ service.Image or 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80' }}" alt="{{ service.Name }}" />
-          <h4>{{ service.Name }}</h4>
-          <p>{{ service.Description }}</p>
+          <a href="{{ url_for('advertising') }}">
+            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80" alt="B2B Advertising" />
+            <h4>B2B Advertising & Brand Placements</h4>
+            <p>Boost your visibility with targeted advertising programs and brand placements.</p>
+          </a>
         </div>
-        {% else %}
-        <p>No services available.</p>
-        {% endfor %}
+
+        <!-- Service 2 -->
+        <div class="card">
+          <a href="{{ url_for('lead_generation') }}">
+            <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=400&q=80" alt="Lead Generation" />
+            <h4>Lead Generation & Sales Pipeline Campaigns</h4>
+            <p>Deliver human-verified, intent-based leads that accelerate your sales pipeline.</p>
+          </a>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="card">
+          <a href="{{ url_for('content_services') }}">
+            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=400&q=80" alt="Content" />
+            <h4>Custom Content & Creative Services</h4>
+            <p>Create high-quality blogs, whitepapers, and infographics that engage audiences.</p>
+          </a>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="card">
+          <a href="{{ url_for('targeting') }}">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="Audience Targeting" />
+            <h4>Audience Targeting & Segmentation</h4>
+            <p>Reach the right buyers with advanced segmentation and intent-based targeting.</p>
+          </a>
+        </div>
+
+        <!-- Service 5 -->
+<div class="card">
+  <a href="{{ url_for('campaign_management') }}">
+    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Campaign Management" />
+    <h4>Campaign Management & Execution</h4>
+    <p>End-to-end campaign planning, execution, and reporting for measurable ROI.</p>
+  </a>
+</div>
+
+<!-- Service 6 -->
+<div class="card">
+  <a href="{{ url_for('lead_quality') }}">
+    <img src="https://images.unsplash.com/photo-1543269664-6e49e46d59a8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDIzfHx8ZW58MHx8fHx8" alt="Lead Quality" />
+    <h4>Verified Lead Quality & Replacement</h4>
+    <p>Get guaranteed, human-verified leads with a replacement policy for accuracy.</p>
+  </a>
+</div>
+
+
       </div>
     </section>
   </main>
@@ -44,12 +92,7 @@
         <a href="#">Contact</a>
         <a href="#">FAQs</a>
       </div>
-      <div class="social-icons">
-        <a href="#"><img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=40&q=80" alt="Facebook" /></a>
-        <a href="#"><img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=40&q=80" alt="Twitter" /></a>
-        <a href="#"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=40&q=80" alt="LinkedIn" /></a>
-      </div>
-    </div>
+     
     <div class="footer-bottom">
       <p>&copy; 2025 The Tech Marketer. All rights reserved.</p>
     </div>
